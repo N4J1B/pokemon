@@ -1,0 +1,63 @@
+body{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  background: #eaeaea;
+  font-family: cursive;
+}
+
+input{
+  height: 30px;
+  width: 300px;
+}
+
+.search-bar{
+  align-items: center;
+}
+
+.app-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container{
+  margin: 10px;
+  margin-bottom: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.container-ld{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-ctr{
+  display: flex;
+  position: fixed;
+  bottom: 0;
+}
+
+.card-img{
+  width: 150px;
+}
+
+.card{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 200px;
+  width: 150px;
+  background: rgb(112, 255, 145);
+  padding: 16px;
+  border-radius: 20%;
+  font-weight: bold;
+}
