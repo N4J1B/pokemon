@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Pokemon({data}) {
     return (
-        <div className="container">
+        <div className="container-poke">
         {
             data.map((item) => {
             return (

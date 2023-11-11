@@ -22,7 +22,8 @@ input{
   justify-content: center;
 }
 
-.container{
+.container-poke{
+  width: 50%;
   margin: 10px;
   margin-bottom: 100px;
   display: flex;
@@ -32,6 +33,13 @@ input{
   gap: 25px;
 }
 
+.container-dt{
+  width: 50%;
+  margin: 10px;
+  margin-bottom: 100px;
+  align-items: center;
+  text-align: center;
+}
 .container-ld{
   width: 100%;
   display: flex;
@@ -60,4 +68,10 @@ input{
   padding: 16px;
   border-radius: 20%;
   font-weight: bold;
+}
+
+.content{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 }

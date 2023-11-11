@@ -2,19 +2,22 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import axios from 'axios'
 import Pokemon from './components/Pokemon'
+import PokeDetail from './components/pokeDetail'
 
 export default function App() {
 
+  const baseUrl = "https://pokeapi.co/api/v2/pokemon"
   const [pokemon, setPokemon] = useState([])
   const [loading, setLoading] = useState(true)
-  const [NowUrl, setNowUrl] = useState("https://pokeapi.co/api/v2/pokemon")
+  const [NowUrl, setNowUrl] = useState(baseUrl)
+  const [input ,setInput] = useState("")
   const [NextUrl, setNextUrl] = useState("")
   const [PrevUrl, setPrevUrl] = useState("")
+  const [pokeDetail, setPokeDetail] = useState()
 
 
   const list = async () => {
     setLoading(true)
-    console.log(NowUrl)
     const res = await axios.get(NowUrl)
     setNextUrl(res.data.next)
     setPrevUrl(res.data.previous)
@@ -45,20 +48,40 @@ export default function App() {
     list()
   }, [NowUrl])
 
-  console.log(NextUrl)
-  console.log(PrevUrl)
-  console.log(pokemon)
+  const inputform = (event) =>{
+    setInput(event.target.value)
+  }
 
-  if (loading) return (<h3>Loading....</h3>)
+  const search = async() =>{
+    let y = input.toLowerCase()
+    const x = await axios.get(`${baseUrl}/${y}`)
+    setPokeDetail(x.data)
+  }
 
-
+  
   return (
     <div className='app-container'>
       <div className='search-bar'>
-        <input type="text" />
-        <button >search</button>
+        <input type="text" onChange={inputform}/>
+        <button onClick={search}>search</button>
       </div>
-      <Pokemon data={pokemon} />
+      <div className='content'>
+      {
+        pokemon && !loading ? (
+          <Pokemon data={pokemon} />
+          ): null
+      }
+      {
+        pokeDetail ? (
+          <PokeDetail data={pokeDetail}/>
+        ): null
+      }
+      {
+        loading ? (
+          <h3>Loading....</h3>
+          ): null
+      }
+      </div>
       <div className='btn-ctr'>
         <button onClick={klikprev}> Previous </button>
         <button onClick={kliknext}> Next </button>
