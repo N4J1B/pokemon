@@ -53,11 +53,14 @@ export default function App() {
   }
 
   const search = async() =>{
-    let y = input.toLowerCase()
-    const x = await axios.get(`${baseUrl}/${y}`)
+    if(!input) return alert("Masukkan Nama Pokemon")
+    const x = await axios.get(`${baseUrl}/${input.toLocaleLowerCase()}`)
     setPokeDetail(x.data)
   }
 
+  const cards = (param) => {
+    setPokeDetail(param)
+  }
   
   return (
     <div className='app-container'>
@@ -68,12 +71,12 @@ export default function App() {
       <div className='content'>
       {
         pokemon && !loading ? (
-          <Pokemon data={pokemon} />
+          <Pokemon data={pokemon} handler={cards}/>
           ): null
       }
       {
         pokeDetail ? (
-          <PokeDetail data={pokeDetail}/>
+          <PokeDetail data={pokeDetail} />
         ): null
       }
       {
@@ -89,5 +92,3 @@ export default function App() {
     </div>
   )
 }
-
-

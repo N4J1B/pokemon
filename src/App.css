@@ -13,9 +13,12 @@ input{
 
 .search-bar{
   align-items: center;
+  position: fixed;
+  top: 10px;
 }
 
 .app-container{
+  margin-top: 70px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -34,18 +37,27 @@ input{
 }
 
 .container-dt{
+  display: flex;
+  flex-direction: column;
+  position: fixed;
   width: 50%;
   margin: 10px;
   margin-bottom: 100px;
   align-items: center;
   text-align: center;
+  top: 70px;
+  right: 10px;
 }
-.container-ld{
+
+.container-dt, .container-poke{
+  flex-basis: 50%;
+}
+/* .container-ld{
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-}
+} */
 
 .btn-ctr{
   display: flex;
@@ -64,7 +76,7 @@ input{
   justify-content: space-evenly;
   height: 200px;
   width: 150px;
-  background: rgb(112, 255, 145);
+  background: rgb(128, 128, 128);
   padding: 16px;
   border-radius: 20%;
   font-weight: bold;
@@ -74,4 +86,10 @@ input{
   display: flex;
   flex-direction: row;
   width: 100%;
+}
+
+.btn{
+  color: rgb(0, 0, 0);
+  background-color: #eaeaea;
+  border: 1px solid purple;
 }
